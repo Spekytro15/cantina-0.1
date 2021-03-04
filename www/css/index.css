@@ -1,0 +1,104 @@
+    * {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    
+    body {
+        -webkit-touch-callout: none;
+        -webkit-text-size-adjust: none;
+        background-color: #ffffff;
+        background-image: linear-gradient(to bottom, #ffffff 0%, #fffdfd 51%);
+        font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+        font-size: 12px;
+        height: 100vh;
+        margin: 0px;
+        padding: 0px;
+        padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+        text-transform: uppercase;
+        width: 100%;
+    }
+    
+    @font-face {
+        font-family: logo-letra;
+        src: url(fontes/Ranchers-Regular.ttf);
+    }
+    
+    .div-cadastro {
+        position: absolute;
+        width: 90%;
+        margin: 5%;
+        background-color: white;
+        z-index: 2;
+        position: fixed;
+        border-radius: 10px;
+        padding: 6px;
+    }
+    
+    .div-text {
+        font-family: logo-letra;
+        font-size: 25pt;
+        margin: 1%;
+    }
+    
+    .txt-inf {
+        position: absolute;
+        z-index: 6;
+        color: teal;
+        font-family: logo-letra;
+        font-size: 19pt;
+        margin: 5%;
+        overflow: hidden;
+    }
+    /*----------*/
+    
+    .color-div {
+        background-image: url(../img/cadastrar.svg);
+        background-size: 74%;
+        background-repeat: no-repeat;
+        width: 95%;
+        height: 28vh;
+        overflow: hidden;
+    }
+    
+    .cad-cantina {
+        background-color: white;
+        width: 88%;
+        margin: 2%;
+        top: 2%;
+        border-radius: 15px;
+    }
+    
+    h4 {
+        font-family: logo-letra;
+        color: #00BFA6;
+        text-shadow: 5px 5px 15px rgb(182, 180, 180);
+    }
+    /* TELA INICIAL */
+    
+    #inicio-div {
+        padding: 6px;
+        position: absolute;
+        top: 15vh;
+        width: 90%;
+        margin: 6%;
+    }
+    
+    .btns-div button {
+        border-radius: 15px;
+        margin: 6%;
+    }
+    
+    .img-inicio {
+        background-image: url(../img/tela-ini.svg);
+        background-size: 98%;
+        background-repeat: no-repeat;
+        width: 95%;
+        height: 36vh;
+        overflow: hidden;
+    }
+    /* btns */
+    
+    .btn-voltar {
+        position: absolute;
+        color: #00BFA6;
+        margin: 6%;
+    }

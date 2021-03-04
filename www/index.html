@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <title>cadastro</title>
+</head>
+
+<body>
+    <div id="tela-1">
+        <center>
+            <h4>Nossa Cantina</h4>
+            <div id="inicio-div">
+
+                <div class="img-inicio">
+
+                </div>
+                <div class="text-div">
+                    <p>Nossa Cantina é um aplicativo que foi desenvolvido com o intuito de auxiliar na aplicação dos serviços oferecidos pela sua cantina de maneira prática, flexível e eficiente.
+                    </p>
+                </div>
+                <div class="btns-div">
+                    <button id="btn-entrar-tela-1" class="btn ">Entrar</button>
+                    <button id="btn-cadastro-tela-1" class="btn">Criar conta</button>
+                </div>
+        </center>
+        </div>
+    </div>
+    <div id="tela-2" style="display: none;">
+        <div id="cadastro-cantina">
+            <a class="btn-voltar" href="#!"><i class="material-icons">arrow_back</i></a>
+            <center>
+                <div class="cad-cantina ">
+                    <h4>Criar conta</h4>
+                    <div class="color-div">
+                    </div>
+                    <div class="row ">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="nome" type="text" class="validate">
+                                <label for="email">Nome</label>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="senha" type="password" class="validate">
+                                <label for="senha">Senha</label>
+
+                            </div>
+                        </div>
+                        <button class="btn ">Cadastrar</button>
+                    </div>
+                </div>
+            </center>
+
+            <div style="display:none;">
+                <nav class="nav-extended  ">
+                    <div class="nav-content">
+                        <span class="nav-title ">Postar Produto</span>
+                        <a id="btn-aparecer" class="btn-floating btn-large halfway-fab waves-effect waves-light teal">
+                            <i class="material-icons">add</i>
+                        </a>
+                        <a id="btn-sumir" style="display: none;" class="btn-floating btn-large halfway-fab waves-effect waves-light teal" href="#"><i class="material-icons right">close</i></a>
+                    </div>
+                </nav>
+
+
+
+                <div id="cad" class="div-cadastro" style="display: none;">
+
+                    <div class="row">
+
+                        <div class="row">
+                            <form name="nome_do_form" enctype="multipart/form-data">
+
+                                <div class="input-field col s12">
+                                    <input id="nome" type="text" class="validate">
+                                    <label for="nome">Nome Produto</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="descricao" type="text" class="validate">
+                                    <label for="nome">descrição</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input id="preco" type="text" class="validate">
+                                    <label for="preco">Preço</label>
+                                </div>
+
+                        </div>
+
+                        <input id="produto_img" type="file">
+
+
+                    </div>
+
+
+
+                    <button id="btn-cadastro" class="btn right">Cadastrar</button>
+                    </form>
+                </div>
+                <ul id="error_sucess"></ul>
+            </div>
+        </div>
+    </div>
+    <div id="tela-3" style="display: none;">
+        <div id="login-cantina">
+            <div class="color-div">
+            </div>
+            <center>
+                <div class="cad-cantina ">
+                    <h4>Entrar</h4>
+                    <div class="row ">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Nome</label>
+                                <span class="helper-text" data-error="wrong" data-success="right">informe seu E-mail</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="senha" type="password" class="validate">
+                                <label for="senha">Senha</label>
+                                <span class="helper-text" data-error="wrong" data-success="right">informe sua senha</span>
+                            </div>
+                        </div>
+
+                        <button class="btn ">Entrar</button>
+                    </div>
+
+            </center>
+            </div>
+        </div>
+
+
+
+        <script src="cordova.js "></script>
+        <script src="js/jquery.js "></script>
+        <script src="js/materialize.min.js "></script>
+        <script src="js/index.js "></script>
+        <script>
+            $(document).ready(function() {
+                function buscar() {
+                    $.get("http://localhost:3000/produtos", function(data) {
+
+                        for (linha = 0; linha < data.length; linha++) {
+                            $("#error_sucess").append("<li><div class='card'> <div class='card-image waves-effect waves-block waves-light'><img class='activator' src='http://localhost:3000/" + data[linha].foto + "' whidth='30'></div><div class='card-content'><span class='card-title activator grey-text text-darken-4'>" + data[linha].nome + " " + data[linha].preco + " <i class='material-icons right'>more_vert</i></span><p><a href='#''>Atualizar</a></p></div><div class='card-reveal'><span class='card-title grey-text text-darken-4 rigth'>" + data[linha].nome + " " + data[linha].preco + "<i class='material-icons right'>close</i></span> <p> " + data[linha].descricao + "</p> </div> </div></li> ");
+
+                        }
+                    });
+                }
+                buscar();
+            });
+
+            $("#btn-cadastro").click(function() {
+                var nome = $("#nome ").val();
+                var preco = $("#preco ").val();
+                var descricao = $("#descricao").val();
+                var formdata = new FormData($("form[name='nome_do_form']")[0]);
+                var link = "form/insert";
+                $.ajax({
+                    type: 'POST',
+                    url: link,
+                    data: formdata,
+                    processData: false,
+                    contentType: false
+
+                }).done(function(data) {
+                    $("div.container-fluid").html(data);
+                });
+
+
+
+                buscar();
+            })
+        </script>
+
+</body>
+
+</html>
